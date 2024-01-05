@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { WheaterHomeComponent } from './modules/wheater/page/wheater-home/wheater-home/wheater-home.component';
+import { WeatherCardComponent } from './modules/wheater/components/weather-card/weather-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WheaterHomeComponent
+    WheaterHomeComponent,
+    WeatherCardComponent
   ],
   imports: [
     BrowserModule,
