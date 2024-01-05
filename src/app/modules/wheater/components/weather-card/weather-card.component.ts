@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { faClock, faDroplet, faTemperatureHigh, faTemperatureLow, faWind } from '@fortawesome/free-solid-svg-icons';
 import { WeatherDatas } from 'src/app/models/interfaces/WeatherDatas';
+import * as moment from 'moment-timezone';
+import 'moment/locale/pt-br';
 
 @Component({
   selector: 'app-weather-card',
@@ -7,11 +10,24 @@ import { WeatherDatas } from 'src/app/models/interfaces/WeatherDatas';
   styleUrls: []
 
 })
-export class WeatherCardComponent implements OnInit {
+export class WeatherCardComponent {
   @Input() weatherDatasInput!: WeatherDatas;
 
-  ngOnInit(): void {
-    console.log('DADOS RECEBIDOS DO PAPAI', this.weatherDatasInput)
+  minTemperatureIcon = faTemperatureLow;
+  maxTemperatureIcon = faTemperatureHigh;
+  humidityIcon = faDroplet;
+  windIcon = faWind;
+  clockIcon = faClock;
+
+  getCurrentDateTime(): string {
+    if (this.weatherDatasInput && this.weatherDatasInput.timezone) {
+      const now = moment.utc();
+      const localTime = now.utcOffset(this.weatherDatasInput.timezone / 60);
+      moment.locale('pt-br');
+
+      return localTime.format('LLL');
+    }
+    return '';
   }
 
 }

@@ -166,3 +166,18 @@ fa-icon {
 .search-icon {
   margin-left: 1em;
 }
+
+.current-time {
+  margin-top: 1em;
+  color: var(--white);
+  font-size: 1em;
+  text-align: center;
+  font-weight: 900;
+
+}
+
+
+.current-time span {
+  margin-left: 0.5em;
+  font-size: 1.2em;
+}
